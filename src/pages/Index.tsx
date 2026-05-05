@@ -117,7 +117,7 @@ const Index = () => {
           </Reveal>
 
           <Reveal delay={120}>
-             <h1 className="mt-8 max-w-5xl font-display text-6xl font-extrabold leading-[1.05] tracking-tight md:text-8xl">
+             <h1 className="mt-8 max-w-5xl font-display text-5xl font-extrabold leading-[1.05] tracking-tight md:text-7xl">
               Marketing de{" "}
               <span className="text-gradient">alta performance</span>{" "}
               impulsionado por tecnologia e dados.
