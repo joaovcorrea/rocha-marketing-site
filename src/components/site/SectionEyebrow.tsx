@@ -9,13 +9,12 @@ export const SectionEyebrow = ({
 }) => (
   <div
     className={cn(
-      "inline-flex items-center justify-center gap-4 rounded-full border border-border/80 bg-card/60 px-7 py-3 text-[13px] font-semibold uppercase tracking-[0.24em] backdrop-blur",
-      "max-w-full whitespace-nowrap overflow-x-auto [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden",
+      "inline-flex max-w-full flex-wrap items-center justify-center gap-x-2 gap-y-1 rounded-2xl border border-border/80 bg-card/60 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.18em] backdrop-blur sm:rounded-full sm:gap-4 sm:px-7 sm:py-3 sm:text-[13px] sm:tracking-[0.24em]",
       className
     )}
   >
     {items.map((it, i) => (
-      <span key={it} className="flex items-center gap-4">
+      <span key={it} className="flex items-center gap-2 sm:gap-4">
         <span className="text-gradient">{it}</span>
         {i < items.length - 1 && (
           <span className="h-1.5 w-1.5 rounded-full bg-muted-foreground/55" />

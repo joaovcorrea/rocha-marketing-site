@@ -35,10 +35,10 @@ const QuemSomos = () => (
     {/* HERO */}
     <section className="relative overflow-hidden">
       <AnimatedBackdrop variant="warm" />
-      <div className="container relative py-24 text-center md:py-32">
+      <div className="container relative py-16 text-center md:py-32">
         <Reveal><SectionEyebrow items={["Assessoria", "Estratégia", "Dados"]} /></Reveal>
         <Reveal delay={120}>
-          <h1 className="mt-8 mx-auto max-w-4xl font-display text-5xl font-extrabold leading-[1.05] md:text-7xl">
+          <h1 className="mt-8 mx-auto max-w-4xl font-display text-3xl font-extrabold leading-[1.05] sm:text-4xl md:text-7xl">
             Compromisso no sobrenome.{" "}
             <span className="text-gradient">Resultados com método.</span>
           </h1>
@@ -93,7 +93,7 @@ const QuemSomos = () => (
               <img
                 src={founderImage}
                 alt="Mateus Correa Rocha — fundador da Rocha Marketing"
-                className="h-full w-full object-cover transition-transform duration-700 hover:scale-105"
+                className="aspect-[4/5] w-full object-cover object-top transition-transform duration-700 hover:scale-105 sm:aspect-[3/4] md:aspect-auto md:h-full"
                 loading="lazy"
               />
               <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-background/90 via-background/40 to-transparent p-5">
@@ -106,7 +106,7 @@ const QuemSomos = () => (
         <Reveal delay={120}>
           <div>
             <SectionEyebrow items={["Compromisso", "Visão", "Legado"]} />
-            <h2 className="mt-6 font-display text-4xl font-bold md:text-5xl">
+            <h2 className="mt-6 font-display text-3xl font-bold sm:text-4xl md:text-5xl">
               Compromisso <span className="text-gradient">no sobrenome</span>.
             </h2>
             <p className="mt-4 text-muted-foreground">
@@ -124,7 +124,7 @@ const QuemSomos = () => (
     <section className="container py-20">
       <Reveal className="text-center">
         <SectionEyebrow items={["História", "Evolução", "Propósito"]} />
-        <h2 className="mt-6 font-display text-4xl font-bold md:text-6xl">
+        <h2 className="mt-6 font-display text-3xl font-bold sm:text-4xl md:text-6xl">
           Construímos <span className="text-gradient">relações com propósito</span>.
         </h2>
       </Reveal>
@@ -158,7 +158,7 @@ const QuemSomos = () => (
     <section className="container py-20">
       <Reveal className="text-center">
         <SectionEyebrow items={["Método", "Estratégia", "Performance"]} />
-        <h2 className="mt-6 font-display text-4xl font-bold md:text-6xl">
+        <h2 className="mt-6 font-display text-3xl font-bold sm:text-4xl md:text-6xl">
           Não entregamos <span className="text-gradient">serviços isolados</span>.
         </h2>
         <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">
@@ -187,7 +187,7 @@ const QuemSomos = () => (
         <div className="relative overflow-hidden rounded-3xl border border-border/70 bg-card/60 p-10 text-center shadow-card md:p-16">
           <div className="absolute inset-0 -z-10 bg-gradient-hero opacity-60" />
           <p className="text-xs font-semibold uppercase tracking-[0.3em] text-muted-foreground">Nosso propósito</p>
-          <h2 className="mx-auto mt-4 max-w-3xl font-display text-4xl font-bold md:text-6xl">
+          <h2 className="mx-auto mt-4 max-w-3xl font-display text-3xl font-bold sm:text-4xl md:text-6xl">
             Acreditamos que empresas crescem quando{" "}
             <span className="text-gradient">marketing, estratégia e dados</span>{" "}
             trabalham juntos.
@@ -204,11 +204,11 @@ const QuemSomos = () => (
       <Reveal>
         <div className="relative overflow-hidden rounded-3xl border border-border/70 bg-card/60 p-8 shadow-card md:p-12">
           <div className="absolute inset-0 -z-10 bg-gradient-hero opacity-50" />
-          <div className="grid gap-10 md:grid-cols-2 md:items-start">
+          <div className="grid justify-items-center gap-10 md:grid-cols-2 md:items-start md:justify-items-stretch">
             {/* Coluna esquerda: copy */}
-            <div>
+            <div className="max-w-xl text-center md:max-w-none md:text-left">
               <SectionEyebrow items={["Conexão", "Estratégia", "Crescimento"]} />
-              <h2 className="mt-4 font-display text-4xl font-bold md:text-6xl">
+              <h2 className="mt-4 font-display text-3xl font-bold sm:text-4xl md:text-6xl">
                 Quer entender como a Rocha pode <span className="text-gradient">apoiar o seu crescimento</span>?
               </h2>
               <p className="mt-4 text-muted-foreground">
@@ -232,7 +232,7 @@ const QuemSomos = () => (
             </div>
 
             {/* Coluna direita: formulário */}
-            <div className="rounded-2xl border border-border/70 bg-card/80 p-6 backdrop-blur md:p-8">
+            <div className="mx-auto w-full max-w-xl rounded-2xl border border-border/70 bg-card/80 p-6 backdrop-blur md:max-w-none md:p-8">
               <h3 className="font-display text-xl font-bold md:text-2xl">Fale com a assessoria</h3>
               <p className="mt-1 text-sm text-muted-foreground">
                 Formulário para falar diretamente com a equipe da Rocha.

@@ -12,7 +12,7 @@ const NotFound = () => (
       noindex
     />
     <section className="container flex min-h-[70vh] flex-col items-center justify-center text-center">
-      <p className="font-display text-[8rem] font-extrabold leading-none text-gradient">404</p>
+      <p className="font-display text-[5rem] font-extrabold leading-none text-gradient sm:text-[6.5rem] md:text-[8rem]">404</p>
       <h1 className="mt-4 font-display text-3xl font-bold">Página não encontrada</h1>
       <p className="mt-3 max-w-md text-muted-foreground">A rota que você procurou não existe ou foi movida.</p>
       <Link to="/" className="mt-8">

@@ -26,10 +26,10 @@ const Portfolio = () => (
     />
     <section className="relative overflow-hidden">
       <AnimatedBackdrop />
-      <div className="container relative py-24 text-center md:py-32">
+      <div className="container relative py-16 text-center md:py-32">
         <Reveal><SectionEyebrow items={["Presença", "Tráfego", "Tecnologia"]} /></Reveal>
         <Reveal delay={120}>
-          <h1 className="mt-8 font-display text-5xl font-extrabold leading-[1.05] md:text-7xl">
+          <h1 className="mt-8 font-display text-3xl font-extrabold leading-[1.05] sm:text-4xl md:text-7xl">
             Do Primeiro Clique Ao{" "}
             <span className="text-gradient">Relacionamento Com Cliente</span>
           </h1>

@@ -116,13 +116,13 @@ const Index = () => {
       {/* ============== HERO ============== */}
       <section className="relative overflow-hidden">
         <AnimatedBackdrop />
-        <div className="container relative flex min-h-[88vh] flex-col items-center justify-center py-24 text-center">
+        <div className="container relative flex min-h-[88vh] flex-col items-center justify-center py-16 text-center md:py-24">
           <Reveal>
             <SectionEyebrow items={["Assessoria", "Dados", "Performance"]} />
           </Reveal>
 
           <Reveal delay={120}>
-             <h1 className="mt-8 max-w-5xl font-display text-5xl font-extrabold leading-[1.05] tracking-tight md:text-7xl">
+             <h1 className="mt-8 max-w-5xl font-display text-3xl font-extrabold leading-[1.05] tracking-tight sm:text-4xl md:text-7xl">
               Marketing de{" "}
               <span className="text-gradient">alta performance</span>{" "}
               impulsionado por tecnologia e dados.
@@ -176,7 +176,7 @@ const Index = () => {
             <p className="text-xs font-semibold uppercase tracking-[0.3em] text-muted-foreground">
               Não somos uma agência tradicional.
             </p>
-            <h2 className="mt-3 font-display text-4xl font-bold leading-tight md:text-6xl">
+            <h2 className="mt-3 font-display text-3xl font-bold leading-tight sm:text-4xl md:text-6xl">
               Somos uma{" "}
               <span className="text-gradient">assessoria estratégica</span> de
               marketing.
@@ -210,7 +210,7 @@ const Index = () => {
       <section className="container py-20">
         <Reveal className="text-center">
           <SectionEyebrow items={["Portfólio", "Frentes", "Resultados"]} />
-          <h2 className="mt-6 font-display text-4xl font-bold md:text-6xl">
+          <h2 className="mt-6 font-display text-3xl font-bold sm:text-4xl md:text-6xl">
             Tudo o que fazemos para a sua{" "}
             <span className="text-gradient">marca crescer.</span>
           </h2>
@@ -242,7 +242,7 @@ const Index = () => {
       <section className="container py-24">
         <Reveal className="text-center">
           <SectionEyebrow items={["Tecnologia", "Estratégia", "Resultado"]} />
-          <h2 className="mt-6 font-display text-4xl font-bold md:text-6xl">
+          <h2 className="mt-6 font-display text-3xl font-bold sm:text-4xl md:text-6xl">
             2026 marca uma <span className="text-gradient">nova era.</span>
           </h2>
           <p className="mx-auto mt-4 max-w-3xl text-muted-foreground">
@@ -278,7 +278,7 @@ const Index = () => {
       {/* ============== COMO FAZEMOS ============== */}
       <section className="container py-20">
         <Reveal className="text-center">
-          <h2 className="font-display text-4xl font-bold md:text-6xl">
+          <h2 className="font-display text-3xl font-bold sm:text-4xl md:text-6xl">
             Como vamos transformar{" "}
             <span className="text-gradient">sua empresa.</span>
           </h2>
@@ -350,7 +350,7 @@ const Index = () => {
             <p className="text-xs font-semibold uppercase tracking-[0.3em] text-muted-foreground">
               Dar o próximo passo leva menos de um minuto
             </p>
-            <h2 className="mx-auto mt-4 max-w-3xl font-display text-4xl font-bold md:text-6xl">
+            <h2 className="mx-auto mt-4 max-w-3xl font-display text-3xl font-bold sm:text-4xl md:text-6xl">
               Receba um <span className="text-gradient">diagnóstico estratégico</span> do seu negócio.
             </h2>
             <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">

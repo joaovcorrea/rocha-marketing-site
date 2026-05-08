@@ -34,10 +34,10 @@ const Contato = () => {
       />
       <section className="relative overflow-hidden">
         <AnimatedBackdrop />
-        <div className="container relative py-24 text-center md:py-28">
+        <div className="container relative py-16 text-center md:py-28">
           <Reveal><SectionEyebrow items={["Contato", "Diagnóstico", "Estratégia"]} /></Reveal>
           <Reveal delay={120}>
-            <h1 className="mt-8 font-display text-5xl font-extrabold leading-[1.05] md:text-7xl">
+            <h1 className="mt-8 font-display text-3xl font-extrabold leading-[1.05] sm:text-4xl md:text-7xl">
               Receba um <span className="text-gradient">diagnóstico estratégico</span> do seu negócio.
             </h1>
           </Reveal>
@@ -68,7 +68,7 @@ const Contato = () => {
           </Reveal>
 
           <Reveal delay={120} className="lg:col-span-3">
-            <form onSubmit={onSubmit} className="relative overflow-hidden rounded-3xl border border-border/70 bg-card/60 p-8 shadow-card backdrop-blur md:p-10">
+            <form onSubmit={onSubmit} className="relative mx-auto w-full max-w-3xl overflow-hidden rounded-3xl border border-border/70 bg-card/60 p-8 shadow-card backdrop-blur md:max-w-none md:p-10">
               <div className="absolute inset-0 -z-10 bg-gradient-hero opacity-30" />
               <div className="grid gap-5 md:grid-cols-2">
                 <Field label="Nome" name="nome" required />
@@ -82,7 +82,7 @@ const Contato = () => {
                 <label className="text-xs font-semibold uppercase tracking-widest text-muted-foreground">Conte sobre seu negócio</label>
                 <textarea name="msg" rows={4} className="mt-2 w-full rounded-xl border border-border bg-background/60 px-4 py-3 text-sm text-foreground outline-none transition focus:border-primary/60 focus:ring-2 focus:ring-primary/20" />
               </div>
-              <div className="mt-6 flex justify-end">
+              <div className="mt-6 flex justify-center md:justify-end">
                 <CTAButton type="submit" variant="primary" size="lg" disabled={sending}>
                   <Send className="h-4 w-4" /> {sending ? "Enviando..." : "Receber diagnóstico"}
                 </CTAButton>

@@ -68,11 +68,11 @@ const Roketing = () => (
     {/* HERO */}
     <section className="relative overflow-hidden">
       <AnimatedBackdrop variant="warm" />
-      <div className="container relative grid items-center gap-12 py-24 md:grid-cols-2 md:py-32">
+      <div className="container relative grid items-center gap-12 py-16 md:grid-cols-2 md:py-32">
         <div className="text-center md:text-left">
           <Reveal><SectionEyebrow items={["Mercado Livre", "Integração", "Performance"]} /></Reveal>
           <Reveal delay={120}>
-            <h1 className="mt-8 font-display text-5xl font-extrabold leading-[1.05] md:text-7xl">
+            <h1 className="mt-8 font-display text-3xl font-extrabold leading-[1.05] sm:text-4xl md:text-7xl">
               Venda mais no <span className="text-gradient">marketplace líder</span> do Brasil.
             </h1>
           </Reveal>
@@ -105,7 +105,7 @@ const Roketing = () => (
                 src={roketingHero}
                 alt="Operador de logística movimentando caixa em centro de distribuição"
                 loading="eager"
-                className="aspect-square w-full object-cover transition-transform duration-700 group-hover:scale-[1.04]"
+                className="aspect-[4/5] w-full object-cover transition-transform duration-700 group-hover:scale-[1.04] sm:aspect-square"
               />
               <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-background/90 to-transparent" />
             </div>
@@ -122,7 +122,7 @@ const Roketing = () => (
     <section className="container py-20">
       <Reveal className="text-center">
         <SectionEyebrow items={["Estrutura", "Estratégia", "Escala"]} />
-        <h2 className="mt-6 font-display text-4xl font-bold md:text-6xl">
+        <h2 className="mt-6 font-display text-3xl font-bold sm:text-4xl md:text-6xl">
           Estrutura completa para <span className="text-gradient">vender mais</span>.
         </h2>
       </Reveal>
@@ -146,7 +146,7 @@ const Roketing = () => (
     <section className="container py-20">
       <Reveal className="text-center">
         <SectionEyebrow items={["Requisitos", "Estrutura", "Escala"]} />
-        <h2 className="mt-6 font-display text-4xl font-bold md:text-6xl">
+        <h2 className="mt-6 font-display text-3xl font-bold sm:text-4xl md:text-6xl">
           Sua operação está <span className="text-gradient">pronta para escalar</span>?
         </h2>
       </Reveal>
@@ -171,7 +171,7 @@ const Roketing = () => (
         <div className="relative overflow-hidden rounded-3xl border border-border/70 bg-card/60 p-10 shadow-card md:p-16">
           <div className="absolute inset-0 -z-10 bg-gradient-hero opacity-50" />
           <SectionEyebrow items={["Estratégia", "Competitividade", "Lucro"]} />
-          <h2 className="mt-6 max-w-3xl font-display text-4xl font-bold md:text-5xl">
+          <h2 className="mt-6 max-w-3xl font-display text-3xl font-bold sm:text-4xl md:text-5xl">
             Por que entrar no Mercado Livre <span className="text-gradient">com estratégia</span>?
           </h2>
           <p className="mt-4 max-w-3xl text-muted-foreground md:text-lg">
@@ -185,7 +185,7 @@ const Roketing = () => (
     <section className="container py-20">
       <Reveal className="text-center">
         <SectionEyebrow items={["Investimento"]} />
-        <h2 className="mt-6 font-display text-4xl font-bold md:text-6xl">
+        <h2 className="mt-6 font-display text-3xl font-bold sm:text-4xl md:text-6xl">
           Estrutura completa para <span className="text-gradient">crescer com performance</span>.
         </h2>
         <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">
@@ -218,22 +218,22 @@ const Roketing = () => (
       <Reveal>
         <div className="relative overflow-hidden rounded-3xl border border-border/70 bg-card/60 p-8 shadow-card md:p-12">
           <div className="absolute inset-0 -z-10 bg-gradient-hero opacity-60" />
-          <div className="grid gap-10 md:grid-cols-2 md:items-start">
-            <div>
+          <div className="grid justify-items-center gap-10 md:grid-cols-2 md:items-start md:justify-items-stretch">
+            <div className="max-w-xl text-center md:max-w-none md:text-left">
               <SectionEyebrow items={["Marketplace", "Estratégia", "Escala"]} />
-              <h2 className="mt-6 font-display text-4xl font-bold md:text-6xl">
+              <h2 className="mt-6 font-display text-3xl font-bold sm:text-4xl md:text-6xl">
                 Quero vender no <span className="text-gradient">Mercado Livre</span>.
               </h2>
               <p className="mt-4 text-muted-foreground">
                 Preencha o formulário ao lado para analisarmos sua operação e entendermos se sua empresa está pronta para escalar no marketplace.
               </p>
-              <div className="mt-6 flex flex-col gap-3 sm:flex-row">
+              <div className="mt-6 flex flex-col items-center gap-3 sm:flex-row md:items-start">
                 <CTAButton as="a" href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" variant="whatsapp" size="lg">
                   <MessageCircle className="h-5 w-5" /> WhatsApp
                 </CTAButton>
               </div>
             </div>
-            <div className="rounded-2xl border border-border/70 bg-card/80 p-6 backdrop-blur md:p-8">
+            <div className="mx-auto w-full max-w-xl rounded-2xl border border-border/70 bg-card/80 p-6 backdrop-blur md:max-w-none md:p-8">
               <form
                 className="space-y-3"
                 onSubmit={(e) => {

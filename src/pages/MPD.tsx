@@ -16,7 +16,7 @@ import mpdHero from "@/assets/mpd-hero.jpg";
 const Pulse = () => (
   <svg
     aria-hidden
-    className="pointer-events-none absolute inset-x-0 bottom-10 mx-auto h-20 w-[90%] max-w-3xl opacity-40"
+    className="pointer-events-none absolute -bottom-3 left-1/2 z-20 h-20 w-[92vw] max-w-3xl -translate-x-1/2 opacity-70 md:bottom-2 md:w-[90%] md:opacity-50"
     viewBox="0 0 800 80"
     fill="none"
   >
@@ -101,11 +101,11 @@ const MPD = () => (
     <section className="relative overflow-hidden">
       <AnimatedBackdrop variant="cool" />
       <Pulse />
-      <div className="container relative grid items-center gap-12 py-24 md:grid-cols-2 md:py-32">
+      <div className="container relative grid items-center gap-12 py-16 md:grid-cols-2 md:py-32">
         <div className="order-1 text-center md:text-left">
           <Reveal><SectionEyebrow items={["Odontologia", "Marketing", "Resultados"]} /></Reveal>
           <Reveal delay={120}>
-            <h1 className="mt-8 font-display text-5xl font-extrabold leading-[1.05] md:text-7xl">
+            <h1 className="mt-8 font-display text-3xl font-extrabold leading-[1.05] sm:text-4xl md:text-7xl">
               Marketing profissional para <span className="text-gradient">dentistas</span>.
             </h1>
           </Reveal>
@@ -144,7 +144,7 @@ const MPD = () => (
                 src={mpdHero}
                 alt="Profissional dentista sorrindo em clínica odontológica moderna"
                 loading="eager"
-                className="aspect-square w-full object-cover transition-transform duration-700 group-hover:scale-[1.04]"
+                className="aspect-[4/5] w-full object-cover transition-transform duration-700 group-hover:scale-[1.04] sm:aspect-square"
               />
               <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-background/90 to-transparent" />
             </div>
@@ -161,7 +161,7 @@ const MPD = () => (
     <section className="container py-20">
       <Reveal className="text-center">
         <SectionEyebrow items={["Método", "Processo", "Performance"]} />
-        <h2 className="mt-6 font-display text-4xl font-bold md:text-6xl">
+        <h2 className="mt-6 font-display text-3xl font-bold sm:text-4xl md:text-6xl">
           Conheça nosso <span className="text-gradient">método</span>.
         </h2>
       </Reveal>
@@ -190,7 +190,7 @@ const MPD = () => (
     <section className="container py-20">
       <Reveal className="text-center">
         <SectionEyebrow items={["Posicionamento", "Pacientes", "Crescimento"]} />
-        <h2 className="mt-6 font-display text-4xl font-bold md:text-6xl">
+        <h2 className="mt-6 font-display text-3xl font-bold sm:text-4xl md:text-6xl">
           Como podemos <span className="text-gradient">transformar</span> os resultados do seu consultório.
         </h2>
       </Reveal>
@@ -214,7 +214,7 @@ const MPD = () => (
     <section className="container py-20">
       <Reveal className="text-center">
         <SectionEyebrow items={["Transparência", "Estratégia", "Resultado"]} />
-        <h2 className="mt-6 font-display text-4xl font-bold md:text-6xl">
+        <h2 className="mt-6 font-display text-3xl font-bold sm:text-4xl md:text-6xl">
           Honestidade antes de <span className="text-gradient">qualquer venda</span>.
         </h2>
       </Reveal>
@@ -249,7 +249,7 @@ const MPD = () => (
           <div className="relative grid gap-10 md:grid-cols-2 md:items-center">
             <div>
               <SectionEyebrow items={["Performance", "Crescimento", "ROI"]} />
-              <h2 className="mt-6 font-display text-4xl font-bold md:text-5xl">
+              <h2 className="mt-6 font-display text-3xl font-bold sm:text-4xl md:text-5xl">
                 Em 30 dias, cada R$ 1 investido retornou <span className="text-gradient">R$ 8,98</span>.
               </h2>
               <p className="mt-4 text-muted-foreground">
@@ -280,20 +280,23 @@ const MPD = () => (
       <Reveal>
         <div className="relative overflow-hidden rounded-3xl border border-border/70 bg-card/60 p-8 shadow-card md:p-12">
           <div className="absolute inset-0 -z-10 bg-gradient-hero opacity-60" />
-          <div className="grid gap-10 md:grid-cols-2 md:items-start">
-            <div>
-              <SectionEyebrow items={["Crescimento", "Estratégia", "Autoridade"]} />
-              <h2 className="mt-6 font-display text-4xl font-bold md:text-6xl">
+          <div className="mx-auto grid w-full max-w-5xl justify-items-center gap-10 md:grid-cols-2 md:items-start md:justify-items-center md:gap-12">
+            <div className="mx-auto flex w-full max-w-sm flex-col items-center text-center sm:max-w-md md:max-w-[30rem] md:items-start md:text-left">
+              <SectionEyebrow
+                className="mx-auto w-fit max-w-[18.5rem] px-3 py-2 text-[10px] tracking-[0.14em] sm:max-w-full sm:px-4 sm:text-[11px] sm:tracking-[0.16em] md:mx-0 md:px-7 md:py-3 md:text-[13px] md:tracking-[0.24em]"
+                items={["Crescimento", "Estratégia", "Autoridade"]}
+              />
+              <h2 className="mx-auto mt-6 max-w-[16ch] font-display text-3xl font-bold sm:text-4xl md:mx-0 md:max-w-none md:text-6xl">
                 Eleve o nível do <span className="text-gradient">seu consultório</span>.
               </h2>
-              <p className="mt-4 text-muted-foreground">
+              <p className="mx-auto mt-4 max-w-md text-muted-foreground md:mx-0 md:max-w-none">
                 Preencha o formulário ao lado e receba uma <strong className="text-foreground">análise gratuita</strong>.
               </p>
-              <p className="mt-2 text-xs text-muted-foreground/70">Sem compromisso.</p>
+              <p className="mx-auto mt-2 max-w-md text-xs text-muted-foreground/70 md:mx-0 md:max-w-none">Sem compromisso.</p>
             </div>
-            <div className="rounded-2xl border border-border/70 bg-card/80 p-6 backdrop-blur md:p-8">
+            <div className="mx-auto w-full max-w-sm rounded-2xl border border-border/70 bg-card/80 p-6 backdrop-blur sm:max-w-md md:max-w-[30rem] md:p-8">
               <form
-                className="space-y-3"
+                className="mx-auto w-full max-w-sm space-y-3 md:max-w-[26rem]"
                 onSubmit={(e) => {
                   e.preventDefault();
                   const fd = new FormData(e.currentTarget);

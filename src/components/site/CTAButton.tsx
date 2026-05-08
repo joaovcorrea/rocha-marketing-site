@@ -25,7 +25,7 @@ type AsLink = BaseProps &
 export const CTAButton = forwardRef<HTMLElement, AsButton | AsLink>(
   ({ variant = "primary", size = "md", className, children, ...rest }, ref) => {
     const cls = cn(
-      "btn-shimmer group relative inline-flex items-center justify-center gap-2 rounded-full font-semibold transition-all duration-300 hover:scale-[1.03] active:scale-[0.98]",
+      "btn-shimmer group relative inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full font-semibold transition-all duration-300 hover:scale-[1.03] active:scale-[0.98]",
       size === "lg" ? "h-14 px-8 text-base" : "h-12 px-6 text-sm",
       styles[variant],
       className
