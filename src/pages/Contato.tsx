@@ -6,17 +6,22 @@ import { SectionEyebrow } from "@/components/site/SectionEyebrow";
 import { AnimatedBackdrop } from "@/components/site/AnimatedBackdrop";
 import { CTAButton } from "@/components/site/CTAButton";
 import { SEO } from "@/components/site/SEO";
+import { AGENCY_EMAIL, WHATSAPP_LINK, buildMailto, formDataToBody } from "@/lib/contact";
 
 const Contato = () => {
   const [sending, setSending] = useState(false);
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setSending(true);
-    setTimeout(() => {
-      setSending(false);
-      toast.success("Recebemos seus dados! Em breve entraremos em contato.");
-      (e.target as HTMLFormElement).reset();
-    }, 800);
+    const fd = new FormData(e.currentTarget);
+    const body = formDataToBody(fd, "Origem: /contato");
+    window.location.href = buildMailto({
+      subject: "Contato — Diagnóstico | Rocha Marketing",
+      body,
+    });
+    setTimeout(() => setSending(false), 300);
+    toast.success("Abrimos seu e-mail para enviar a mensagem.");
+    (e.currentTarget as HTMLFormElement).reset();
   };
 
   return (
@@ -47,13 +52,13 @@ const Contato = () => {
               <div className="rounded-2xl border border-border/70 bg-card/60 p-6 backdrop-blur">
                 <div className="flex items-center gap-3"><MessageCircle className="h-5 w-5 text-primary" /><span className="font-semibold">WhatsApp</span></div>
                 <p className="mt-2 text-sm text-muted-foreground">Atendimento direto com um especialista.</p>
-                <CTAButton as="a" href="https://api.whatsapp.com/send?phone=554196796939" target="_blank" rel="noopener noreferrer" variant="whatsapp" className="mt-4">
+                <CTAButton as="a" href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" variant="whatsapp" className="mt-4">
                   <MessageCircle className="h-4 w-4" /> Falar agora
                 </CTAButton>
               </div>
               <div className="rounded-2xl border border-border/70 bg-card/60 p-6 backdrop-blur">
                 <div className="flex items-center gap-3"><Mail className="h-5 w-5 text-primary" /><span className="font-semibold">E-mail</span></div>
-                <p className="mt-2 text-sm text-muted-foreground">contato@rochamarketing.com</p>
+                <p className="mt-2 text-sm text-muted-foreground">{AGENCY_EMAIL}</p>
               </div>
               <div className="rounded-2xl border border-border/70 bg-card/60 p-6 backdrop-blur">
                 <div className="flex items-center gap-3"><MapPin className="h-5 w-5 text-primary" /><span className="font-semibold">Curitiba · Brasil</span></div>

@@ -14,7 +14,7 @@ export const Footer = () => (
         </p>
         <div className="flex gap-3 pt-2">
           {[
-            { Icon: MessageCircle, href: "https://api.whatsapp.com/send?phone=554196796939", label: "WhatsApp" },
+            { Icon: MessageCircle, href: "https://api.whatsapp.com/send?phone=5541999166939", label: "WhatsApp" },
             { Icon: Instagram, href: "#", label: "Instagram" },
             { Icon: Facebook, href: "#", label: "Facebook" },
             { Icon: Linkedin, href: "#", label: "LinkedIn" },
@@ -80,12 +80,12 @@ export const Footer = () => (
           </li>
           <li>
             <a
-              href="https://api.whatsapp.com/send?phone=554196796939"
+              href="https://api.whatsapp.com/send?phone=5541999166939"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-foreground"
             >
-              (41) 9679-6939
+              (41) 99916-6939
             </a>
           </li>
         </ul>

@@ -3,6 +3,7 @@ import { NavLink, Link } from "react-router-dom";
 import { Menu, X, MessageCircle, Instagram, Linkedin, Facebook } from "lucide-react";
 import { Logo } from "./Logo";
 import { cn } from "@/lib/utils";
+import { WHATSAPP_LINK } from "@/lib/contact";
 
 const NAV = [
   { to: "/", label: "Home" },
@@ -79,7 +80,7 @@ export const Header = () => {
             </a>
           ))}
           <a
-            href="https://api.whatsapp.com/send?phone=554196796939"
+            href={WHATSAPP_LINK}
             target="_blank"
             rel="noopener noreferrer"
             className="btn-shimmer btn-cta-animated hidden h-10 items-center gap-2 rounded-full px-5 text-sm font-semibold text-white shadow-cta transition-transform hover:scale-[1.03] md:inline-flex"
@@ -126,7 +127,7 @@ export const Header = () => {
             </NavLink>
           ))}
           <a
-            href="https://api.whatsapp.com/send?phone=554196796939"
+            href={WHATSAPP_LINK}
             target="_blank"
             rel="noopener noreferrer"
             className="btn-cta-animated mt-2 inline-flex h-11 items-center justify-center gap-2 rounded-full text-sm font-semibold text-white shadow-cta"

@@ -9,6 +9,7 @@ import { SectionEyebrow } from "@/components/site/SectionEyebrow";
 import { AnimatedBackdrop } from "@/components/site/AnimatedBackdrop";
 import { CTAButton } from "@/components/site/CTAButton";
 import { SEO } from "@/components/site/SEO";
+import { WHATSAPP_LINK, buildMailto, formDataToBody } from "@/lib/contact";
 import mpdHero from "@/assets/mpd-hero.jpg";
 
 /* "Pulso" cardíaco no fundo — efeito vivo exclusivo do MPD */
@@ -116,7 +117,7 @@ const MPD = () => (
           </Reveal>
           <Reveal delay={420}>
             <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row md:justify-start">
-              <CTAButton as="a" href="https://api.whatsapp.com/send?phone=554196796939&text=Quero%20entrar%20em%20contato" target="_blank" rel="noopener noreferrer" variant="whatsapp" size="lg">
+              <CTAButton as="a" href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" variant="whatsapp" size="lg">
                 <MessageCircle className="h-5 w-5" /> Entre em contato
               </CTAButton>
               <CTAButton as="a" href="#mpd-form" variant="primary" size="lg">
@@ -159,7 +160,7 @@ const MPD = () => (
     {/* MÉTODO */}
     <section className="container py-20">
       <Reveal className="text-center">
-        <SectionEyebrow items={["Conheça", "Nosso", "Método"]} />
+        <SectionEyebrow items={["Método", "Processo", "Performance"]} />
         <h2 className="mt-6 font-display text-4xl font-bold md:text-6xl">
           Conheça nosso <span className="text-gradient">método</span>.
         </h2>
@@ -188,7 +189,7 @@ const MPD = () => (
     {/* PORTFÓLIO ODONTOLÓGICO */}
     <section className="container py-20">
       <Reveal className="text-center">
-        <SectionEyebrow items={["Portfólio", "Odontológico"]} />
+        <SectionEyebrow items={["Posicionamento", "Pacientes", "Crescimento"]} />
         <h2 className="mt-6 font-display text-4xl font-bold md:text-6xl">
           Como podemos <span className="text-gradient">transformar</span> os resultados do seu consultório.
         </h2>
@@ -212,7 +213,7 @@ const MPD = () => (
     {/* O QUE NÃO FAZEMOS */}
     <section className="container py-20">
       <Reveal className="text-center">
-        <SectionEyebrow items={["O que", "Não", "Fazemos"]} />
+        <SectionEyebrow items={["Transparência", "Estratégia", "Resultado"]} />
         <h2 className="mt-6 font-display text-4xl font-bold md:text-6xl">
           Honestidade antes de <span className="text-gradient">qualquer venda</span>.
         </h2>
@@ -247,7 +248,7 @@ const MPD = () => (
           <div className="absolute -right-20 -top-20 h-64 w-64 rounded-full bg-gradient-brand opacity-30 blur-3xl" />
           <div className="relative grid gap-10 md:grid-cols-2 md:items-center">
             <div>
-              <SectionEyebrow items={["Case", "de", "Sucesso"]} />
+              <SectionEyebrow items={["Performance", "Crescimento", "ROI"]} />
               <h2 className="mt-6 font-display text-4xl font-bold md:text-5xl">
                 Em 30 dias, cada R$ 1 investido retornou <span className="text-gradient">R$ 8,98</span>.
               </h2>
@@ -281,7 +282,7 @@ const MPD = () => (
           <div className="absolute inset-0 -z-10 bg-gradient-hero opacity-60" />
           <div className="grid gap-10 md:grid-cols-2 md:items-start">
             <div>
-              <SectionEyebrow items={["CTA", "Final"]} />
+              <SectionEyebrow items={["Crescimento", "Estratégia", "Autoridade"]} />
               <h2 className="mt-6 font-display text-4xl font-bold md:text-6xl">
                 Eleve o nível do <span className="text-gradient">seu consultório</span>.
               </h2>
@@ -295,7 +296,12 @@ const MPD = () => (
                 className="space-y-3"
                 onSubmit={(e) => {
                   e.preventDefault();
-                  window.open("https://api.whatsapp.com/send?phone=554196796939&text=Quero%20uma%20an%C3%A1lise%20gratuita", "_blank");
+                  const fd = new FormData(e.currentTarget);
+                  window.location.href = buildMailto({
+                    subject: "MPD — Análise gratuita | Rocha Marketing",
+                    body: formDataToBody(fd, "Origem: /mpd"),
+                  });
+                  e.currentTarget.reset();
                 }}
               >
                 <input required type="text" name="nome" placeholder="Nome" className="w-full rounded-lg border border-border bg-background-soft/50 px-4 py-3 text-sm outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/30" />

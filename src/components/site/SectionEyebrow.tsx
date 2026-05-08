@@ -9,7 +9,8 @@ export const SectionEyebrow = ({
 }) => (
   <div
     className={cn(
-      "inline-flex flex-wrap items-center justify-center gap-4 rounded-full border border-border/80 bg-card/60 px-7 py-3 text-[13px] font-semibold uppercase tracking-[0.24em] backdrop-blur",
+      "inline-flex items-center justify-center gap-4 rounded-full border border-border/80 bg-card/60 px-7 py-3 text-[13px] font-semibold uppercase tracking-[0.24em] backdrop-blur",
+      "max-w-full whitespace-nowrap overflow-x-auto [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden",
       className
     )}
   >

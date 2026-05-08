@@ -1,4 +1,5 @@
 import { Helmet } from "react-helmet-async";
+import { AGENCY_PHONE_E164 } from "@/lib/contact";
 
 export const SITE_URL = "https://rochamarketing.com.br";
 export const DEFAULT_OG_IMAGE =
@@ -78,7 +79,7 @@ export const SEOGlobal = () => {
     contactPoint: [
       {
         "@type": "ContactPoint",
-        telephone: "+55-41-9679-6939",
+        telephone: `+${AGENCY_PHONE_E164}`,
         contactType: "customer service",
         areaServed: "BR",
         availableLanguage: "pt-BR",

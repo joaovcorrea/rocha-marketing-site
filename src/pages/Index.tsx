@@ -24,6 +24,9 @@ import clientLavessi from "@/assets/clients/lavessi.png";
 import clientConfraria from "@/assets/clients/confraria-store.png";
 import clientDogzen from "@/assets/clients/dogzen.png";
 import clientPuroLuxo from "@/assets/clients/puro-luxo.png";
+import clientInClip from "@/assets/clients/in-clip.png";
+import clientRhayeneOdonto from "@/assets/clients/rhayene-odonto.png";
+import { WHATSAPP_LINK } from "@/lib/contact";
 
 const CLIENTS = [
   { src: clientSantosGoncalves, name: "Santos & Gonçalves Advocacia" },
@@ -31,6 +34,8 @@ const CLIENTS = [
   { src: clientConfraria, name: "Confraria Store" },
   { src: clientDogzen, name: "DogZen Espaço Pet" },
   { src: clientPuroLuxo, name: "Puro Luxo" },
+  { src: clientInClip, name: "InClip" },
+  { src: clientRhayeneOdonto, name: "Rhayene Odonto" },
 ];
 
 const PORTFOLIO = [
@@ -140,7 +145,7 @@ const Index = () => {
             <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row">
               <CTAButton
                 as="a"
-                href="https://api.whatsapp.com/send?phone=554196796939"
+                href={WHATSAPP_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
                 variant="whatsapp"
@@ -236,7 +241,7 @@ const Index = () => {
       {/* ============== NOVA ERA ============== */}
       <section className="container py-24">
         <Reveal className="text-center">
-          <SectionEyebrow items={["2026", "Nova Era", "Resultado"]} />
+          <SectionEyebrow items={["Tecnologia", "Estratégia", "Resultado"]} />
           <h2 className="mt-6 font-display text-4xl font-bold md:text-6xl">
             2026 marca uma <span className="text-gradient">nova era.</span>
           </h2>
@@ -307,18 +312,29 @@ const Index = () => {
           </p>
         </Reveal>
         <div className="mt-8 overflow-hidden">
-          <div className="marquee-track flex w-max items-center gap-16 px-8">
-            {[...Array(2)].flatMap((_, k) =>
-              CLIENTS.map((c, i) => (
+          <div className="marquee-track flex w-max items-center px-8">
+            <div className="flex items-center gap-16 pr-16">
+              {CLIENTS.map((c) => (
                 <img
-                  key={`${k}-${i}`}
+                  key={c.name}
                   src={c.src}
                   alt={c.name}
                   loading="lazy"
                   className="h-16 w-auto shrink-0 object-contain opacity-80 brightness-0 invert transition hover:opacity-100 md:h-20"
                 />
-              ))
-            )}
+              ))}
+            </div>
+            <div className="flex items-center gap-16 pr-16" aria-hidden>
+              {CLIENTS.map((c) => (
+                <img
+                  key={`dup-${c.name}`}
+                  src={c.src}
+                  alt=""
+                  loading="lazy"
+                  className="h-16 w-auto shrink-0 object-contain opacity-80 brightness-0 invert transition hover:opacity-100 md:h-20"
+                />
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -340,7 +356,7 @@ const Index = () => {
             <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
               <CTAButton
                 as="a"
-                href="https://api.whatsapp.com/send?phone=554196796939"
+                href={WHATSAPP_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
                 variant="whatsapp"

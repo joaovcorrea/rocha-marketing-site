@@ -8,6 +8,7 @@ import { SectionEyebrow } from "@/components/site/SectionEyebrow";
 import { AnimatedBackdrop } from "@/components/site/AnimatedBackdrop";
 import { CTAButton } from "@/components/site/CTAButton";
 import { SEO } from "@/components/site/SEO";
+import { WHATSAPP_LINK, buildMailto, formDataToBody } from "@/lib/contact";
 import roketingHero from "@/assets/roketing-hero.jpg";
 
 /* Foguete que segue o scroll (efeito "vivo" exclusivo do Roketing) */
@@ -89,7 +90,7 @@ const Roketing = () => (
               <CTAButton as="a" href="#roketing-form" variant="primary" size="lg">
                 <Zap className="h-5 w-5" /> Quero falar com um especialista
               </CTAButton>
-              <CTAButton as="a" href="https://api.whatsapp.com/send?phone=554196796939" target="_blank" rel="noopener noreferrer" variant="whatsapp" size="lg">
+              <CTAButton as="a" href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" variant="whatsapp" size="lg">
                 <MessageCircle className="h-5 w-5" /> WhatsApp
               </CTAButton>
             </div>
@@ -120,7 +121,7 @@ const Roketing = () => (
     {/* O QUE OFERECEMOS */}
     <section className="container py-20">
       <Reveal className="text-center">
-        <SectionEyebrow items={["O Que", "Oferecemos"]} />
+        <SectionEyebrow items={["Estrutura", "Estratégia", "Escala"]} />
         <h2 className="mt-6 font-display text-4xl font-bold md:text-6xl">
           Estrutura completa para <span className="text-gradient">vender mais</span>.
         </h2>
@@ -144,7 +145,7 @@ const Roketing = () => (
     {/* REQUISITOS */}
     <section className="container py-20">
       <Reveal className="text-center">
-        <SectionEyebrow items={["Requisitos", "Para", "Participar"]} />
+        <SectionEyebrow items={["Requisitos", "Estrutura", "Escala"]} />
         <h2 className="mt-6 font-display text-4xl font-bold md:text-6xl">
           Sua operação está <span className="text-gradient">pronta para escalar</span>?
         </h2>
@@ -169,7 +170,7 @@ const Roketing = () => (
       <Reveal>
         <div className="relative overflow-hidden rounded-3xl border border-border/70 bg-card/60 p-10 shadow-card md:p-16">
           <div className="absolute inset-0 -z-10 bg-gradient-hero opacity-50" />
-          <SectionEyebrow items={["Por Que", "Com", "Estratégia"]} />
+          <SectionEyebrow items={["Estratégia", "Competitividade", "Lucro"]} />
           <h2 className="mt-6 max-w-3xl font-display text-4xl font-bold md:text-5xl">
             Por que entrar no Mercado Livre <span className="text-gradient">com estratégia</span>?
           </h2>
@@ -219,7 +220,7 @@ const Roketing = () => (
           <div className="absolute inset-0 -z-10 bg-gradient-hero opacity-60" />
           <div className="grid gap-10 md:grid-cols-2 md:items-start">
             <div>
-              <SectionEyebrow items={["Quero", "Vender", "no ML"]} />
+              <SectionEyebrow items={["Marketplace", "Estratégia", "Escala"]} />
               <h2 className="mt-6 font-display text-4xl font-bold md:text-6xl">
                 Quero vender no <span className="text-gradient">Mercado Livre</span>.
               </h2>
@@ -227,7 +228,7 @@ const Roketing = () => (
                 Preencha o formulário ao lado para analisarmos sua operação e entendermos se sua empresa está pronta para escalar no marketplace.
               </p>
               <div className="mt-6 flex flex-col gap-3 sm:flex-row">
-                <CTAButton as="a" href="https://api.whatsapp.com/send?phone=554196796939&text=Quero%20vender%20no%20Mercado%20Livre" target="_blank" rel="noopener noreferrer" variant="whatsapp" size="lg">
+                <CTAButton as="a" href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" variant="whatsapp" size="lg">
                   <MessageCircle className="h-5 w-5" /> WhatsApp
                 </CTAButton>
               </div>
@@ -237,7 +238,12 @@ const Roketing = () => (
                 className="space-y-3"
                 onSubmit={(e) => {
                   e.preventDefault();
-                  window.open("https://api.whatsapp.com/send?phone=554196796939&text=Quero%20vender%20no%20Mercado%20Livre", "_blank");
+                  const fd = new FormData(e.currentTarget);
+                  window.location.href = buildMailto({
+                    subject: "Roketing — Análise | Rocha Marketing",
+                    body: formDataToBody(fd, "Origem: /roketing"),
+                  });
+                  e.currentTarget.reset();
                 }}
               >
                 <input required type="text" name="nome" placeholder="Nome" className="w-full rounded-lg border border-border bg-background-soft/50 px-4 py-3 text-sm outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/30" />

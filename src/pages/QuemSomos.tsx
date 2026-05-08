@@ -3,6 +3,7 @@ import { SectionEyebrow } from "@/components/site/SectionEyebrow";
 import { AnimatedBackdrop } from "@/components/site/AnimatedBackdrop";
 import { CTAButton } from "@/components/site/CTAButton";
 import { SEO } from "@/components/site/SEO";
+import { WHATSAPP_LINK, buildMailto, formDataToBody } from "@/lib/contact";
 import {
   MessageCircle, Compass, Megaphone, Settings2, LineChart,
   MapPin, Globe2, Database, Sparkles,
@@ -55,7 +56,7 @@ const QuemSomos = () => (
             <CTAButton as="a" href="#quem-somos-contato" variant="primary" size="lg">
               <Sparkles className="h-5 w-5" /> Falar com a equipe
             </CTAButton>
-            <CTAButton as="a" href="https://api.whatsapp.com/send?phone=554196796939" target="_blank" rel="noopener noreferrer" variant="whatsapp" size="lg">
+            <CTAButton as="a" href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" variant="whatsapp" size="lg">
               <MessageCircle className="h-5 w-5" /> WhatsApp
             </CTAButton>
           </div>
@@ -104,7 +105,7 @@ const QuemSomos = () => (
         </Reveal>
         <Reveal delay={120}>
           <div>
-            <SectionEyebrow items={["Fundador", "Rocha", "Marketing"]} />
+            <SectionEyebrow items={["Compromisso", "Visão", "Legado"]} />
             <h2 className="mt-6 font-display text-4xl font-bold md:text-5xl">
               Compromisso <span className="text-gradient">no sobrenome</span>.
             </h2>
@@ -122,7 +123,7 @@ const QuemSomos = () => (
     {/* NOSSA HISTÓRIA */}
     <section className="container py-20">
       <Reveal className="text-center">
-        <SectionEyebrow items={["Nossa", "História", "2026"]} />
+        <SectionEyebrow items={["História", "Evolução", "Propósito"]} />
         <h2 className="mt-6 font-display text-4xl font-bold md:text-6xl">
           Construímos <span className="text-gradient">relações com propósito</span>.
         </h2>
@@ -156,7 +157,7 @@ const QuemSomos = () => (
     {/* COMO TRABALHAMOS */}
     <section className="container py-20">
       <Reveal className="text-center">
-        <SectionEyebrow items={["Como", "Trabalhamos", "Método"]} />
+        <SectionEyebrow items={["Método", "Estratégia", "Performance"]} />
         <h2 className="mt-6 font-display text-4xl font-bold md:text-6xl">
           Não entregamos <span className="text-gradient">serviços isolados</span>.
         </h2>
@@ -206,7 +207,7 @@ const QuemSomos = () => (
           <div className="grid gap-10 md:grid-cols-2 md:items-start">
             {/* Coluna esquerda: copy */}
             <div>
-              <SectionEyebrow items={["Próximo", "Passo"]} />
+              <SectionEyebrow items={["Conexão", "Estratégia", "Crescimento"]} />
               <h2 className="mt-4 font-display text-4xl font-bold md:text-6xl">
                 Quer entender como a Rocha pode <span className="text-gradient">apoiar o seu crescimento</span>?
               </h2>
@@ -240,7 +241,12 @@ const QuemSomos = () => (
                 className="mt-5 space-y-3"
                 onSubmit={(e) => {
                   e.preventDefault();
-                  window.open("https://api.whatsapp.com/send?phone=554196796939", "_blank");
+                  const fd = new FormData(e.currentTarget);
+                  window.location.href = buildMailto({
+                    subject: "Contato — Quem Somos | Rocha Marketing",
+                    body: formDataToBody(fd, "Origem: /quem-somos"),
+                  });
+                  e.currentTarget.reset();
                 }}
               >
                 <div className="grid gap-3 sm:grid-cols-2">
