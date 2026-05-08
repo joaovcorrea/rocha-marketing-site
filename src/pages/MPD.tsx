@@ -215,7 +215,7 @@ const MPD = () => (
       <Reveal className="text-center">
         <SectionEyebrow items={["Transparência", "Estratégia", "Resultado"]} />
         <h2 className="mt-6 font-display text-3xl font-bold sm:text-4xl md:text-6xl">
-          Honestidade antes de <span className="text-gradient">qualquer venda</span>.
+          O que não fazemos:
         </h2>
       </Reveal>
       <div className="mt-14 grid gap-6 md:grid-cols-3">
