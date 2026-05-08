@@ -278,25 +278,62 @@ const MPD = () => (
     {/* CTA FINAL com formulário */}
     <section id="mpd-form" className="container py-20">
       <Reveal>
-        <div className="relative overflow-hidden rounded-3xl border border-border/70 bg-card/60 p-8 shadow-card md:p-12">
+        <div className="relative overflow-hidden rounded-3xl border border-border/70 bg-card/60 p-4 shadow-card sm:p-6 md:p-12">
           <div className="absolute inset-0 -z-10 bg-gradient-hero opacity-60" />
-          <div className="mx-auto grid w-full max-w-5xl justify-items-center gap-10 md:grid-cols-2 md:items-start md:justify-items-center md:gap-12">
-            <div className="mx-auto flex w-full max-w-sm flex-col items-center text-center sm:max-w-md md:max-w-[30rem] md:items-start md:text-left">
+          <div className="mx-auto w-full max-w-md space-y-5 md:hidden">
+            <div className="rounded-2xl border border-border/70 bg-card/70 px-4 py-5 text-center backdrop-blur">
               <SectionEyebrow
-                className="mx-auto w-fit max-w-[18.5rem] px-3 py-2 text-[10px] tracking-[0.14em] sm:max-w-full sm:px-4 sm:text-[11px] sm:tracking-[0.16em] md:mx-0 md:px-7 md:py-3 md:text-[13px] md:tracking-[0.24em]"
+                className="mx-auto w-fit max-w-[18rem] px-3 py-2 text-[10px] tracking-[0.14em]"
                 items={["Crescimento", "Estratégia", "Autoridade"]}
               />
-              <h2 className="mx-auto mt-6 max-w-[16ch] font-display text-3xl font-bold sm:text-4xl md:mx-0 md:max-w-none md:text-6xl">
+              <h2 className="mx-auto mt-4 max-w-[14ch] font-display text-[2rem] font-bold leading-[1.05]">
                 Eleve o nível do <span className="text-gradient">seu consultório</span>.
               </h2>
-              <p className="mx-auto mt-4 max-w-md text-muted-foreground md:mx-0 md:max-w-none">
+              <p className="mx-auto mt-3 max-w-[30ch] text-base text-muted-foreground">
+                Preencha o formulário e receba uma <strong className="text-foreground">análise gratuita</strong>.
+              </p>
+              <p className="mt-2 text-xs text-muted-foreground/70">Sem compromisso.</p>
+            </div>
+
+            <div className="rounded-2xl border border-border/70 bg-card/80 p-4 backdrop-blur">
+              <form
+                className="space-y-3"
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  const fd = new FormData(e.currentTarget);
+                  window.location.href = buildMailto({
+                    subject: "MPD — Análise gratuita | Rocha Marketing",
+                    body: formDataToBody(fd, "Origem: /mpd"),
+                  });
+                  e.currentTarget.reset();
+                }}
+              >
+                <input required type="text" name="nome" placeholder="Nome" className="w-full rounded-lg border border-border bg-background-soft/50 px-4 py-3 text-sm outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/30" />
+                <input required type="tel" name="telefone" placeholder="Telefone" className="w-full rounded-lg border border-border bg-background-soft/50 px-4 py-3 text-sm outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/30" />
+                <input required type="email" name="email" placeholder="E-mail" className="w-full rounded-lg border border-border bg-background-soft/50 px-4 py-3 text-sm outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/30" />
+                <textarea name="mensagem" rows={3} placeholder="Mensagem (opcional)" className="w-full rounded-lg border border-border bg-background-soft/50 px-4 py-3 text-sm outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/30" />
+                <CTAButton type="submit" variant="primary" size="lg" className="w-full">
+                  <MessageCircle className="h-5 w-5" /> Receber análise gratuita
+                </CTAButton>
+              </form>
+            </div>
+          </div>
+
+          <div className="mx-auto hidden w-full max-w-5xl md:grid md:grid-cols-2 md:items-start md:justify-items-center md:gap-12">
+            <div className="w-full max-w-[30rem]">
+              <SectionEyebrow className="md:mx-0" items={["Crescimento", "Estratégia", "Autoridade"]} />
+              <h2 className="mt-6 font-display text-6xl font-bold">
+                Eleve o nível do <span className="text-gradient">seu consultório</span>.
+              </h2>
+              <p className="mt-4 text-muted-foreground">
                 Preencha o formulário ao lado e receba uma <strong className="text-foreground">análise gratuita</strong>.
               </p>
-              <p className="mx-auto mt-2 max-w-md text-xs text-muted-foreground/70 md:mx-0 md:max-w-none">Sem compromisso.</p>
+              <p className="mt-2 text-xs text-muted-foreground/70">Sem compromisso.</p>
             </div>
-            <div className="mx-auto w-full max-w-sm rounded-2xl border border-border/70 bg-card/80 p-6 backdrop-blur sm:max-w-md md:max-w-[30rem] md:p-8">
+
+            <div className="w-full max-w-[30rem] rounded-2xl border border-border/70 bg-card/80 p-8 backdrop-blur">
               <form
-                className="mx-auto w-full max-w-sm space-y-3 md:max-w-[26rem]"
+                className="mx-auto w-full max-w-[26rem] space-y-3"
                 onSubmit={(e) => {
                   e.preventDefault();
                   const fd = new FormData(e.currentTarget);
