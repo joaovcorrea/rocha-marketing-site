@@ -298,26 +298,28 @@ const MPD = () => (
     {/* CTA FINAL com formulário */}
     <section id="mpd-form" className="container py-20">
       <Reveal>
-        <div className="relative overflow-hidden rounded-3xl border border-border/70 bg-card/60 p-4 shadow-card sm:p-6 md:p-12">
-          <div className="absolute inset-0 -z-10 bg-gradient-hero opacity-60" />
-          <div className="mx-auto w-full max-w-md space-y-5 md:hidden">
-            <div className="rounded-2xl border border-border/70 bg-card/70 px-4 py-5 text-center backdrop-blur">
-              <SectionEyebrow
-                className="mx-auto w-fit max-w-[18rem] px-3 py-2 text-[10px] tracking-[0.14em]"
-                items={["Crescimento", "Estratégia", "Autoridade"]}
-              />
-              <h2 className="mx-auto mt-4 max-w-[14ch] font-display text-[2rem] font-bold leading-[1.05]">
-                Eleve o nível do <span className="text-gradient">seu consultório</span>.
-              </h2>
-              <p className="mx-auto mt-3 max-w-[30ch] text-base text-muted-foreground">
-                Preencha o formulário e receba uma <strong className="text-foreground">análise gratuita</strong>.
-              </p>
-              <p className="mt-2 text-xs text-muted-foreground/70">Sem compromisso.</p>
-            </div>
+        <div className="relative overflow-hidden rounded-3xl max-md:border-0 max-md:bg-transparent max-md:p-0 max-md:shadow-none md:border md:border-border/70 md:bg-card/60 md:p-12 md:shadow-card">
+          <div className="absolute inset-0 -z-10 bg-gradient-hero opacity-60 max-md:rounded-2xl" />
+          <div className="mx-auto w-full max-w-md md:hidden">
+            <div className="rounded-2xl border border-border/35 bg-card/50 p-5 shadow-soft backdrop-blur">
+              <div className="text-center">
+                <SectionEyebrow
+                  className="mx-auto w-fit max-w-[18rem] border-transparent bg-foreground/[0.06] px-3 py-2 text-[10px] tracking-[0.14em]"
+                  items={["Crescimento", "Estratégia", "Autoridade"]}
+                />
+                <h2 className="mx-auto mt-4 max-w-[14ch] font-display text-[2rem] font-bold leading-[1.05]">
+                  Eleve o nível do <span className="text-gradient">seu consultório</span>.
+                </h2>
+                <p className="mx-auto mt-3 max-w-[30ch] text-base text-muted-foreground">
+                  Preencha o formulário e receba uma <strong className="text-foreground">análise gratuita</strong>.
+                </p>
+                <p className="mt-2 text-xs text-muted-foreground/70">Sem compromisso.</p>
+              </div>
 
-            <div className="rounded-2xl border border-border/70 bg-card/80 p-4 backdrop-blur">
+              <div className="my-5 h-px w-full bg-gradient-to-r from-transparent via-border/60 to-transparent" aria-hidden />
+
               <form
-                className="space-y-3"
+                className="space-y-3.5"
                 onSubmit={(e) => {
                   e.preventDefault();
                   const fd = new FormData(e.currentTarget);
@@ -328,11 +330,34 @@ const MPD = () => (
                   e.currentTarget.reset();
                 }}
               >
-                <input required type="text" name="nome" placeholder="Nome" className="w-full rounded-lg border border-border bg-background-soft/50 px-4 py-3 text-sm outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/30" />
-                <input required type="tel" name="telefone" placeholder="Telefone" className="w-full rounded-lg border border-border bg-background-soft/50 px-4 py-3 text-sm outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/30" />
-                <input required type="email" name="email" placeholder="E-mail" className="w-full rounded-lg border border-border bg-background-soft/50 px-4 py-3 text-sm outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/30" />
-                <textarea name="mensagem" rows={3} placeholder="Mensagem (opcional)" className="w-full rounded-lg border border-border bg-background-soft/50 px-4 py-3 text-sm outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/30" />
-                <CTAButton type="submit" variant="primary" size="lg" className="w-full">
+                <input
+                  required
+                  type="text"
+                  name="nome"
+                  placeholder="Nome"
+                  className="w-full rounded-xl bg-background-soft/60 px-4 py-3.5 text-sm outline-none ring-1 ring-inset ring-border/20 transition placeholder:text-muted-foreground/60 focus:ring-2 focus:ring-primary/45"
+                />
+                <input
+                  required
+                  type="tel"
+                  name="telefone"
+                  placeholder="Telefone"
+                  className="w-full rounded-xl bg-background-soft/60 px-4 py-3.5 text-sm outline-none ring-1 ring-inset ring-border/20 transition placeholder:text-muted-foreground/60 focus:ring-2 focus:ring-primary/45"
+                />
+                <input
+                  required
+                  type="email"
+                  name="email"
+                  placeholder="E-mail"
+                  className="w-full rounded-xl bg-background-soft/60 px-4 py-3.5 text-sm outline-none ring-1 ring-inset ring-border/20 transition placeholder:text-muted-foreground/60 focus:ring-2 focus:ring-primary/45"
+                />
+                <textarea
+                  name="mensagem"
+                  rows={3}
+                  placeholder="Mensagem (opcional)"
+                  className="w-full resize-y rounded-xl bg-background-soft/60 px-4 py-3.5 text-sm outline-none ring-1 ring-inset ring-border/20 transition placeholder:text-muted-foreground/60 focus:ring-2 focus:ring-primary/45"
+                />
+                <CTAButton type="submit" variant="primary" size="lg" className="mt-1 w-full">
                   <MessageCircle className="h-5 w-5" /> Receber análise gratuita
                 </CTAButton>
               </form>
