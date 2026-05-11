@@ -43,24 +43,44 @@ const Pulse = () => (
   </svg>
 );
 
-/* Tilt 3D nos cards (microinteração leve) */
+/* Tilt 3D — só com mouse fino; touch evita bug visual e “hover preso”. */
 const TiltCard = ({ children }: { children: React.ReactNode }) => {
   const ref = useRef<HTMLDivElement>(null);
   const [t, setT] = useState({ rx: 0, ry: 0 });
+  const [finePointer, setFinePointer] = useState(false);
+
+  useEffect(() => {
+    const mq = window.matchMedia("(pointer: fine)");
+    const sync = () => setFinePointer(mq.matches);
+    sync();
+    mq.addEventListener("change", sync);
+    return () => mq.removeEventListener("change", sync);
+  }, []);
+
   return (
     <div
       ref={ref}
-      onMouseMove={(e) => {
-        const r = ref.current!.getBoundingClientRect();
-        const x = (e.clientX - r.left) / r.width;
-        const y = (e.clientY - r.top) / r.height;
-        setT({ rx: (0.5 - y) * 8, ry: (x - 0.5) * 8 });
-      }}
-      onMouseLeave={() => setT({ rx: 0, ry: 0 })}
-      style={{
-        transform: `perspective(900px) rotateX(${t.rx}deg) rotateY(${t.ry}deg)`,
-        transition: "transform 0.25s var(--ease-out-soft)",
-      }}
+      onMouseMove={
+        finePointer
+          ? (e) => {
+              const el = ref.current;
+              if (!el) return;
+              const r = el.getBoundingClientRect();
+              const x = (e.clientX - r.left) / r.width;
+              const y = (e.clientY - r.top) / r.height;
+              setT({ rx: (0.5 - y) * 8, ry: (x - 0.5) * 8 });
+            }
+          : undefined
+      }
+      onMouseLeave={finePointer ? () => setT({ rx: 0, ry: 0 }) : undefined}
+      style={
+        finePointer
+          ? {
+              transform: `perspective(900px) rotateX(${t.rx}deg) rotateY(${t.ry}deg)`,
+              transition: "transform 0.25s var(--ease-out-soft)",
+            }
+          : undefined
+      }
       className="h-full"
     >
       {children}
@@ -105,7 +125,7 @@ const MPD = () => (
         <div className="order-1 text-center md:text-left">
           <Reveal><SectionEyebrow items={["Odontologia", "Marketing", "Resultados"]} /></Reveal>
           <Reveal delay={120}>
-            <h1 className="mt-8 font-display text-3xl font-extrabold leading-[1.05] sm:text-4xl md:text-7xl">
+            <h1 className="mt-8 font-display text-4xl font-extrabold leading-[1.05] sm:text-4xl md:text-7xl">
               Marketing profissional para <span className="text-gradient">dentistas</span>.
             </h1>
           </Reveal>
@@ -170,7 +190,7 @@ const MPD = () => (
           <Reveal key={p.t} delay={i * 80}>
             <TiltCard>
               <div className="hover-lift group relative h-full overflow-hidden rounded-2xl border border-border/70 bg-card/60 p-6 backdrop-blur transition hover:border-primary/40">
-                <div className="absolute -right-10 -top-10 h-32 w-32 rounded-full bg-gradient-brand opacity-0 blur-3xl transition-opacity duration-700 group-hover:opacity-50" />
+                <div className="pointer-events-none absolute -right-10 -top-10 h-32 w-32 rounded-full bg-gradient-brand opacity-0 blur-3xl transition-opacity duration-700 [@media(hover:hover)_and_(pointer:fine)]:group-hover:opacity-50" />
                 <div className="flex items-center gap-3">
                   <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-brand-soft text-primary">
                     <p.Icon className="h-6 w-6" />
@@ -198,7 +218,7 @@ const MPD = () => (
         {PORTFOLIO.map((p, i) => (
           <Reveal key={p.t} delay={i * 90}>
             <div className="hover-lift group relative h-full overflow-hidden rounded-2xl border border-border/70 bg-card/60 p-6 backdrop-blur transition hover:border-primary/40">
-              <div className="absolute -right-10 -top-10 h-32 w-32 rounded-full bg-gradient-brand opacity-0 blur-3xl transition-opacity duration-700 group-hover:opacity-50" />
+              <div className="pointer-events-none absolute -right-10 -top-10 h-32 w-32 rounded-full bg-gradient-brand opacity-0 blur-3xl transition-opacity duration-700 [@media(hover:hover)_and_(pointer:fine)]:group-hover:opacity-50" />
               <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-brand-soft text-primary">
                 <p.Icon className="h-6 w-6" />
               </div>

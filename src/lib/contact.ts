@@ -1,12 +1,16 @@
 export const AGENCY_EMAIL = "comercial@rochamarketing.com.br";
 
-// Número da agência para landing page (formato sem máscara).
+// Número exibido no footer / dados estruturados (SEO) — manter alinhado ao Footer.
 export const AGENCY_PHONE_RAW = "41999166939";
 
-// Formato E.164 para links (WhatsApp/telefone).
+// Formato E.164 para SEO (telefone da empresa).
 export const AGENCY_PHONE_E164 = `55${AGENCY_PHONE_RAW}`;
 
-export const WHATSAPP_LINK = `https://api.whatsapp.com/send?phone=${AGENCY_PHONE_E164}`;
+// Número dos botões WhatsApp em páginas e header (41) 9679-6939.
+export const WHATSAPP_CTA_PHONE_RAW = "4196796939";
+export const WHATSAPP_CTA_E164 = `55${WHATSAPP_CTA_PHONE_RAW}`;
+
+export const WHATSAPP_LINK = `https://api.whatsapp.com/send?phone=${WHATSAPP_CTA_E164}`;
 
 type MailtoParams = {
   to?: string;

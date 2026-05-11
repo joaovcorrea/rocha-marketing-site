@@ -37,7 +37,7 @@ const Contato = () => {
         <div className="container relative py-16 text-center md:py-28">
           <Reveal><SectionEyebrow items={["Contato", "Diagnóstico", "Estratégia"]} /></Reveal>
           <Reveal delay={120}>
-            <h1 className="mt-8 font-display text-3xl font-extrabold leading-[1.05] sm:text-4xl md:text-7xl">
+            <h1 className="mt-8 font-display text-4xl font-extrabold leading-[1.05] sm:text-4xl md:text-7xl">
               Receba um <span className="text-gradient">diagnóstico estratégico</span> do seu negócio.
             </h1>
           </Reveal>

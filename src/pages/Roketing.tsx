@@ -72,7 +72,7 @@ const Roketing = () => (
         <div className="text-center md:text-left">
           <Reveal><SectionEyebrow items={["Mercado Livre", "Integração", "Performance"]} /></Reveal>
           <Reveal delay={120}>
-            <h1 className="mt-8 font-display text-3xl font-extrabold leading-[1.05] sm:text-4xl md:text-7xl">
+            <h1 className="mt-8 font-display text-4xl font-extrabold leading-[1.05] sm:text-4xl md:text-7xl">
               Venda mais no <span className="text-gradient">marketplace líder</span> do Brasil.
             </h1>
           </Reveal>

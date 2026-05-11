@@ -38,7 +38,7 @@ const QuemSomos = () => (
       <div className="container relative py-16 text-center md:py-32">
         <Reveal><SectionEyebrow items={["Assessoria", "Estratégia", "Dados"]} /></Reveal>
         <Reveal delay={120}>
-          <h1 className="mt-8 mx-auto max-w-4xl font-display text-3xl font-extrabold leading-[1.05] sm:text-4xl md:text-7xl">
+          <h1 className="mt-8 mx-auto max-w-4xl font-display text-4xl font-extrabold leading-[1.05] sm:text-4xl md:text-7xl">
             Compromisso no sobrenome.{" "}
             <span className="text-gradient">Resultados com método.</span>
           </h1>
